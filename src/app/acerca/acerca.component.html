@@ -1,0 +1,64 @@
+<div class="container-masonry">
+  <h2>Nuestro equipo</h2>
+  
+  <div class="lema">
+    "Tu salud, nuestra prioridad: cuidando de ti en cada paso del camino."
+  </div>
+
+  <div class="masonry-img" >
+    <ng-container *ngFor="let image of images">
+      <img [src]="image.src" [alt]="image.alt" class="masonry-item">
+    </ng-container>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-left mb-4">¿Qué hacemos?</h2>
+      <p class="mb-4 text-center txt1">Cuidar de la salud es fundamental para llevar una vida plena. </p>
+    </div>
+    <div class="col-md-6 align-self-center">
+      <img src="assets/img_miembrosEquipo/salud.png"  alt="..." >
+    </div>
+    <div class="col-md-6">
+      <h4 class="mb-3 txt2">Cuidando vidas, innovando soluciones</h4>
+      <p class="mb-0 txt">Nuestra clínica está dedicada a ayudarte a alcanzar tu mejor salud. Ya sea que estés buscando atención preventiva, gestionando una condición crónica o recuperándote de una lesión, estamos aquí para apoyarte. Creemos que todos merecen acceso a atención médica de alta calidad que se adapte a sus necesidades individuales. Por eso ofrecemos servicios integrales y atención compasiva para ayudarte a vivir una vida más saludable. Desde chequeos de rutina hasta tratamientos especializados, estamos comprometidos a proporcionar la mejor atención posible a nuestros pacientes. Tu salud y bienestar son nuestras principales prioridades, y estamos dedicados a ayudarte a alcanzar tus metas de salud.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Testimonios</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6" *ngFor="let testimonio of testimonios">
+      <div [ngStyle]="{'background-color': testimonioColor, 'padding': testimonioPadding, 'font-family': testimonioFamily, 'margin':testimonioMargin}" [ngClass]="{'testimonial-border': mostrarBorde}">
+        <h4>{{ testimonio.titulo }}</h4>
+        <p>{{ testimonio.contenido }}</p>
+        <p class="text-muted">{{ testimonio.autor }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <h2>Equipo de desarrollo</h2>
+  <div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4" *ngFor="let miembro of miembrosEquipoDesarrollo">
+      <div class="card con-style" >           
+        <img [src]="miembro.imagenUrl" class="card-img-top" alt="{{ miembro.nombre }}" style="height: 15rem; object-fit: cover;"> 
+        <div class="card-body">
+          <h5 class="card-title">{{ miembro.nombre }}</h5>    
+          <p class="card-text">Estudiante de Ing. Sistemas Computacionales de la UAA</p>        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center mt-5">
+  <p>Proyecto universitario para la materia de Tecnologías Web</p>
+</div>

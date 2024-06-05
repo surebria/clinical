@@ -1,0 +1,61 @@
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2c65c0;
+}
+
+.container *{
+    margin-top: 10px;
+}
+
+.list-group {
+    margin-bottom: 30px;
+}
+
+.list-group-item {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+.list-group-item:hover {
+    background-color: #007bff27;
+}
+
+.list-group-item h5 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list-group-item p {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.list-group-item small {
+    font-size: 14px;
+    color: #233db3;
+}
+
+.text-primary {
+    color: #007bff;
+}
+
+.text-secondary {
+    color: #6c757d;
+}
+
+h1 + .list-group {
+    margin-top: 40px;
+}
+
+.text-cost{
+    color: #2c65c0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.text-cost::before{
+    content: "$";
+    font-weight: normal;
+}

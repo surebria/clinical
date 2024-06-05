@@ -1,0 +1,13 @@
+<div class="card d-flex justify-content-center">
+    <form [formGroup]="formGroup" class="w-100">
+        <div class="input-group">
+            <p-selectButton 
+                [options]="stateOptions" 
+                formControlName="value" 
+                optionLabel="label" 
+                optionValue="value"
+                (onChange)="cambiaVideo($event.value)"
+                class="form-control" />
+        </div>
+    </form>
+</div>

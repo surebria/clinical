@@ -1,0 +1,150 @@
+<div class="container">
+
+    <h3>Agendar Cita</h3>
+    
+    <div [ngClass]="{ 'con-valor': cita.doctor, 'sin-valor': !cita.doctor }">
+        <!-- Si el doctor ya tiene un valor asignado entonces se aplicara un diseño en el que se muestra el doctor
+            Si no esta seleccionado el doctor se aplicara otro estilo sin este-->
+        <div>
+            <div>
+                <p>Doctor</p>
+                @if (porParametro) {
+    
+                <select class="form-select" aria-label="Default select example" disabled>
+                    <option value="{{cita.doctor}}" selected>{{cita.doctor}}</option>
+                </select>
+    
+                }@else {
+                <!-- <p-dropdown [options]="doctores" [(ngModel)]="cita.doctor" optionLabel="nombre"></p-dropdown> 
+                Se almacena todo el objeto no guarda solo el nombre del doctor, por lo que no funciona correctamente-->
+    
+                <select [(ngModel)]="cita.doctor" class="form-select" aria-label="Default select example" (ngModelChange)="asignarCosto()">
+                    @for (doc of doctores; track $index){
+                        <option value="{{doc.nombre}}">{{doc.nombre}}</option>
+                    }
+                </select>
+                }
+                
+            </div>
+            <br>
+    
+            <p style="text-align: center;">Fecha y hora: </p>
+    
+            <div class="formulario">
+
+                <p-calendar 
+                [minDate]="minDate"
+                [(ngModel)]="cita.fecha" 
+                [iconDisplay]="'input'" 
+                [showIcon]="true"
+                inputId="icondisplay"
+                />
+                <!-- falta implementar que si todos los horarios de algun dia estan llenos, 
+                    se debe quitar la posiblidad de elegir ese dia tachandolo con un line throug -->
+    
+                <!-- Prototipo para el manejo de horas, ya que se deben manejar las citas por horarios Especificos
+                    y bien definidos, al tratarse de una consulta medica -->
+                <p-dropdown class="hora" [options]="horariosDisponibles" [(ngModel)]="cita.hora"></p-dropdown>
+    
+            </div>
+    <br>
+            <p>
+                <p-floatLabel>
+                    <input #inputNombre class="estilos" pInputText id="nombre" [(ngModel)]="cita.nombre" />
+                    <label for="nombre">Nombre</label>
+                </p-floatLabel>
+            </p>
+            <br>
+            <p>
+                <p-floatLabel>
+                    <input #inputTelefono class="estilos" pInputText id="telefono" [(ngModel)]="cita.telefono" />
+                    <label for="telefono">Teléfono</label>
+                </p-floatLabel>
+            </p>
+
+            <!-- Validacion para que no se pueda seleccionar un horario ocupado -->
+            <div id="AlertaDiv">
+                @for (con of consultas; track cita) {
+                <!-- <h1>Funciona 1</h1> -->
+                    @if(cita.doctor==con.doctor){
+                    <!-- <h1>Funciona 2</h1> -->
+                    <!-- <p>{{cita.fecha}}</p>
+                            <p>{{con.fecha}}</p> -->
+                        @if((cita.fecha | date) == (con.fecha | date)){
+                        <!-- <p>{{cita.hora}}</p> -->
+                        <!-- <h1>Funciona 3</h1> -->
+                            @if(cita.hora==con.hora){
+                            <!-- cambiar por una alerta -->
+                            <ng-container *ngIf="horarionoDisponible();"></ng-container>
+                            <!-- Se manda llamar a la funcion horarionoDisponible que borra el valor de cita.hora
+                            y lanza una alerta al usuario de que seleccione otra fecha -->
+                            }
+                        }
+                    }
+                }
+            
+                @if(cita.nombre!='' && validacionesNombre(inputNombre)){
+                <div class="alert alert-warning" role="alert">
+                    Por favor ingresa un nombre válido
+                </div>
+                }
+            
+                @if(cita.telefono!='' && validacionesTelefono(inputTelefono)){
+                <div class="alert alert-warning" role="alert">
+                    Por favor ingresa un número de teléfono válido
+                </div>
+                }
+            </div>
+    </div>
+        
+    <div>
+        @for (d of doctores; track $index) {
+            @if(cita.doctor==d.nombre){
+            <img class="doc" [src]="d.img" alt="img"><br><br>
+            <hr>
+            <p-table [value]="doctores" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '30rem'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Cedula:</th>
+                        <td>{{d.cedula}}</td>
+                    </tr>
+                    <tr>
+                        <th>Titulo</th>
+                        <td>{{d.titulo}}</td>
+                    </tr>
+                    <tr>
+                        <th>Especialidad</th>
+                        <td>{{d.especialidad}}</td>
+                    </tr>
+                    <tr>
+                        <th>Areas de Experiencia</th>
+                        <td>
+                            <ul>
+                                <li *ngFor="let area of d.areasExperiencia">{{ area }}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Costo Consulta</th>
+                        <td>${{d.costoconsulta}}</td>
+
+                        <!-- TODO: Averiguar como pasar el costo de consulta -->
+
+                        <!-- Intento invalido (por que? Alch no se) -->
+                        <!-- <input type="number" [(ngModel)]="cita.costo" [value]="d.costoconsulta" hidden /> -->
+                    </tr>
+    
+                </ng-template>
+            </p-table>
+            }
+        }
+    
+    </div>
+    
+    </div>
+    <br>
+    <p style="text-align: center;">
+        <button type="button" class="btn btn-success" (click)="this.nuevaCita()">Guardar</button>
+    </p>
+    
+</div>

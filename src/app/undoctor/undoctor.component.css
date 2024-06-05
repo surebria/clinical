@@ -1,0 +1,88 @@
+.container{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.card-img-top {
+    width: 400px;  
+    height: 400px; 
+    object-fit: cover; 
+  }
+span{
+    font-weight: 500;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: bold;
+    color: #2c65c0;
+}
+
+hr{
+    border-bottom: 3px solid #2c65c0;
+    width: 100%;
+}
+
+.btn{
+    margin: 30px;
+}
+
+.btn-outline-success{
+    color: #2c65c0;
+    border: 2px solid #2c65c0;
+}
+
+.btn-outline-success:hover{
+    color: white;
+    background-color: #2c65c0;
+    border: 1px solid #2c65c0;
+}
+img{
+    width: 100%;
+}
+
+.doc{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0px 100px;
+    row-gap: 40px;
+}
+
+.doc {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0px 100px;
+    row-gap: 40px;
+}
+
+.tabla{
+    width: 100%;
+    margin: 20px;
+}
+
+@media (max-width: 768px) {
+    .doc {
+        grid-template-columns: 1fr;
+        padding: 0px;
+    }
+
+    .tabdoc {
+        min-width: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .doc img {
+        width: 100%; 
+    }
+
+    .doc .tabdoc {
+        min-width: 50rem; 
+    }
+}
+
+
+
+

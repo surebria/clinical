@@ -1,0 +1,80 @@
+/* navbar */
+#navbar{
+    background-color: #2c65c0 !important; 
+    padding-left: 60px !important;
+    font-weight: bold !important;
+}
+
+#logo{
+    font-size: 23px !important;
+    color: white !important;
+}
+
+#logo img{
+    margin-bottom: 10px !important;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.nav-link{
+    color: white !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 1px black !important;
+    margin-left: 15px !important;
+    transition: 0.5s ease !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.nav-link:hover{
+    background-color: rgb(27, 43, 108) !important;
+    color: white !important;
+    border-radius: 50px !important;
+}
+
+.icons{
+    margin: 0px 50px 0px 50px !important;
+}
+
+.icons img{
+    transition: 0.5s ease !important;
+    cursor: pointer !important;
+}
+
+.icons img:hover{
+    transform: translateY(-5px) !important;
+}
+
+/* Botón */
+.btn-search {
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    color: white !important;
+    background-color: #224c91 !important;
+    border: 2px solid #224c91 !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.btn-search:hover {
+    background-color: #152e57 !important;
+    border-color: #224c91 !important;
+}
+
+
+
+.dropdown button{
+    background-color: #224c91 !important;
+    border: none !important;
+    color: white !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 1px black !important;
+    margin-left: 15px !important;
+    transition: 0.5s ease !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+

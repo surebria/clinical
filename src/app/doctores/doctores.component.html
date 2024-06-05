@@ -1,0 +1,24 @@
+<div class="container">
+    <br>
+    <h1 class="text-center">Medicos <small>RUS PV</small></h1>
+    <hr class="linea"><br>
+    
+    <div class="card-group row row-cols-1 row-cols-lg-3 g-5">
+        @for (d of misDoctores; track d; let i = $index) {
+            <a class="medicos" [routerLink]="['/doctor',i]"> <!-- falta la implementacion de medico, para que abra mas informacion sobre el medico seleccionado -->
+                <div>
+                    <div>
+                        <img src="{{d.img}}" class="card-img-top" alt="imgdoc">
+                        <div>
+                            <br><h5>{{d.nombre}}</h5>
+                            <p><span>Titulo:</span> {{d.titulo}} (<small class="text-muted">{{d.universidad}}</small>)</p>
+                            <p><span>Especialidad:</span> {{d.especialidad}} (<small class="text-muted">{{d.lugarEspecialidad}}</small>)</p>
+                        </div>
+                        <a [routerLink]="['/doctor', i]" class="mb-3 btn btn-outline-secondary btn-block">Perfil</a>
+                        <a [routerLink]="['/alta-cita', d.nombre]" class="mb-3 btn btn-outline-success btn-block">Agendar Cita</a>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>

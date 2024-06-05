@@ -1,0 +1,7 @@
+<div class="container">
+    <h1>Curiosidades médicas</h1>
+    <div class="videoSelector">
+        <app-select-video (Emisor)="enviarVideo($event)"></app-select-video>
+        <app-video-selected [video]="videoValue"></app-video-selected>
+    </div>
+</div>
